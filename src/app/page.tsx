@@ -14,6 +14,7 @@ import { WhyUsSection } from "@/components/services/WhyUsSection";
 import { PortalSection } from "@/components/soc/PortalSection";
 import { SlaSection } from "@/components/services/SlaSection";
 import { InsightsSection } from "@/components/services/InsightsSection";
+import { PricingSection } from "@/components/services/PricingSection";
 import { CtaSection } from "@/components/services/CtaSection";
 import { FaqList } from "@/components/ui/Faq";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -24,9 +25,18 @@ import { site } from "@/content/site";
 import { faqSchema, serviceSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: `Managed SOC & Cybersecurity Services | ${site.name}`,
+  title: `Managed SOC & Cybersecurity Services in Pakistan | ${site.name}`,
   description: site.description,
   alternates: { canonical: "/" },
+  keywords: [
+    "managed SOC Pakistan",
+    "MDR Pakistan",
+    "penetration testing Pakistan",
+    "cybersecurity company Rawalpindi",
+    "PTA CTDISR compliance",
+    "SBP ETGRM assessment",
+    "ISO 27001 readiness Pakistan",
+  ],
 };
 
 export default function HomePage() {
@@ -56,6 +66,7 @@ export default function HomePage() {
       <IndustriesSection />
       <WhyUsSection />
       <PortalSection />
+      <PricingSection />
       <SlaSection />
       <InsightsSection />
 

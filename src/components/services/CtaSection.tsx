@@ -16,7 +16,7 @@ export function CtaSection({
   eyebrow = "Next step",
   title = "Find out where you actually stand.",
   body = "A security assessment establishes what you have, what it covers, and what it misses. No obligation, no pressure, and no pricing conversation until scope is clear.",
-  primary = { label: "Request a Security Assessment", href: "/request-assessment" },
+  primary = { label: "Request a Security Assessment", href: "/contact" },
   secondary = { label: "Talk to a Security Expert", href: "/contact" },
   showSteps = true,
 }: {

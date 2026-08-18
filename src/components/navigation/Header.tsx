@@ -188,7 +188,7 @@ export function Header() {
             {/* ---------------- Actions ---------------- */}
             <div className="flex items-center gap-2">
               <Button
-                href="/request-assessment"
+                href="/contact"
                 size="sm"
                 className="hidden sm:inline-flex"
               >

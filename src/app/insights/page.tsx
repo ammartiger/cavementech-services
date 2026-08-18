@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMeta({
 });
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-GB", {
+  return new Date(iso).toLocaleDateString("en-PK", {
     day: "numeric",
     month: "short",
     year: "numeric",

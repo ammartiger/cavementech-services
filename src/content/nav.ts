@@ -28,7 +28,7 @@ export const primaryNav: NavItem[] = [
       {
         label: "Security Audits & Compliance",
         href: "/security-audit",
-        blurb: "Gap assessments, risk reviews and ISO 27001 readiness.",
+        blurb: "PTA, SBP, SECP and ISO 27001 readiness and gap assessment.",
       },
       {
         label: "Incident Response",
@@ -68,7 +68,8 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
     title: "Resources",
     links: [
       { label: "Insights", href: "/insights" },
-      { label: "Request an Assessment", href: "/request-assessment" },
+      { label: "Pricing", href: "/#pricing" },
+      { label: "Compliance in Pakistan", href: "/security-audit#frameworks" },
       { label: "Security Disclosure", href: "/security" },
     ],
   },

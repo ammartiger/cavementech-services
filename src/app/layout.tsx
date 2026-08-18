@@ -28,7 +28,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `Managed SOC & Cybersecurity Services | ${site.name}`,
+    default: `Managed SOC & Cybersecurity Services in Pakistan | ${site.name}`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_GB",
+    locale: "en_PK",
     url: site.url,
     siteName: `${site.name} ${site.serviceLine}`,
     title: `Managed SOC & Cybersecurity Services | ${site.name}`,
@@ -80,7 +80,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en-GB"
+      lang="en-PK"
       className={`${inter.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
@@ -111,7 +111,11 @@ export default function RootLayout({
             "style-src 'self' 'unsafe-inline'",
             "img-src 'self' data:",
             "font-src 'self' data:",
-            "connect-src 'self' https:",
+            // ws: is development-only, for the Next dev server's hot-reload
+            // socket. The production export has no websocket connection.
+            process.env.NODE_ENV === "development"
+              ? "connect-src 'self' https: ws:"
+              : "connect-src 'self' https:",
             "form-action 'self' https:",
             "base-uri 'self'",
             "object-src 'none'",

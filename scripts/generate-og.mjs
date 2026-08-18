@@ -142,7 +142,7 @@ function card() {
             marginBottom: 26,
           },
         },
-        "MANAGED SOC · MDR · OFFENSIVE SECURITY",
+        "MANAGED SOC · MDR · OFFENSIVE SECURITY · PAKISTAN",
       ),
       h(
         "span",
@@ -199,8 +199,16 @@ function card() {
       ),
       h(
         "span",
-        { style: { color: FAINT, fontSize: 21, marginLeft: "auto" } },
-        DOMAIN,
+        {
+          style: {
+            color: MUTED,
+            fontSize: 22,
+            marginLeft: "auto",
+            display: "flex",
+            whiteSpace: "nowrap",
+          },
+        },
+        "From Rs 10,000 / endpoint",
       ),
     ),
   );

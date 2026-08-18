@@ -12,12 +12,13 @@ import { pageMeta, breadcrumbSchema } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Industries",
   description:
-    "Managed security operations, penetration testing and security assurance for technology, financial services, healthcare, education, manufacturing, professional services, public sector and e-commerce organisations.",
+    "Managed SOC, penetration testing and security assurance for banking, fintech, telecom, technology, e-commerce, manufacturing, healthcare, education and public sector organisations across Pakistan.",
   path: "/industries",
 });
 
 const ICON_MAP: Record<string, IconName> = {
   cloud: "cloud",
+  radar: "radar",
   bank: "bank",
   health: "health",
   education: "education",
@@ -44,7 +45,7 @@ export default function IndustriesPage() {
         lead="What needs monitoring, how fast you must respond and what evidence you have to produce all change by sector. We scope against your reality rather than a generic template."
         primary={{
           label: "Request a Security Assessment",
-          href: "/request-assessment",
+          href: "/contact",
         }}
       />
 
@@ -64,7 +65,14 @@ export default function IndustriesPage() {
                   <div className="flex items-start gap-4">
                     <IconTile name={ICON_MAP[industry.icon] ?? "shield"} />
                     <div>
-                      <h2 className="text-h3 text-ink">{industry.name}</h2>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <h2 className="text-h3 text-ink">{industry.name}</h2>
+                        {industry.driver ? (
+                          <span className="rounded-md border border-brand/30 bg-brand/8 px-2 py-0.5 font-mono text-[0.625rem] uppercase tracking-[0.08em] text-brand">
+                            {industry.driver}
+                          </span>
+                        ) : null}
+                      </div>
                       <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
                         {industry.pressure}
                       </p>

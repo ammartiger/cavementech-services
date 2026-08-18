@@ -44,7 +44,7 @@ export async function generateMetadata({
 }
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-GB", {
+  return new Date(iso).toLocaleDateString("en-PK", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -138,7 +138,7 @@ export default async function InsightPage({
                 conversation will get you further than another article.
               </p>
               <Link
-                href="/request-assessment"
+                href="/contact"
                 className="mt-4 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-brand transition-colors hover:text-brand-bright"
               >
                 Request a security assessment

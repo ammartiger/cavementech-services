@@ -7,28 +7,17 @@ import { Icon } from "@/components/ui/Icon";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { CtaSection } from "@/components/services/CtaSection";
 import { WhyUsSection } from "@/components/services/WhyUsSection";
+import { AbstractAvatar, NodeField } from "@/components/viz/AbstractArt";
+import { team } from "@/content/team";
 import { site } from "@/content/site";
 import { pageMeta, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "About",
   description:
-    "Who we are and how we work: managed security operations backed by offensive-security expertise, built to make enterprise-grade security operations accessible to organisations of every size.",
+    "Managed security operations backed by offensive-security expertise, built in Pakistan to make enterprise-grade security operations accessible to organisations of every size.",
   path: "/about",
 });
-
-/**
- * Team placeholders.
- *
- * Deliberately empty of credentials. The brief is explicit that certifications,
- * affiliations and achievements must not be invented — so each entry carries
- * only a bracketed name and role until real details are supplied here.
- */
-const TEAM = [
-  { name: "[FOUNDER NAME]", role: "[ROLE]" },
-  { name: "[TEAM MEMBER NAME]", role: "[ROLE]" },
-  { name: "[TEAM MEMBER NAME]", role: "[ROLE]" },
-];
 
 const PRINCIPLES = [
   {
@@ -37,7 +26,7 @@ const PRINCIPLES = [
   },
   {
     title: "Scope before selling",
-    body: "A proposal that isn't grounded in your actual environment is a guess with a price attached. We scope first, including when scoping reveals you need less than you asked for.",
+    body: "A proposal that isn't grounded in your actual environment is a guess with a price attached. We scope first — including when scoping reveals you need less than you asked for.",
   },
   {
     title: "Leave the client more capable",
@@ -59,7 +48,16 @@ export default function AboutPage() {
         eyebrow="About"
         crumbs={[{ label: "About" }]}
         title="Security operations, built by people who also break things."
-        lead="We run managed detection and response, and we run offensive security engagements. Keeping both disciplines in one place is a deliberate choice — each makes the other measurably better."
+        lead="We run managed detection and response, and we run offensive security engagements. Keeping both disciplines in one team is a deliberate choice — each makes the other measurably better."
+        aside={
+          <div className="panel-lit hairline-top overflow-hidden p-6">
+            <NodeField className="h-auto w-full" />
+            <p className="mt-4 text-xs leading-relaxed text-ink-faint">
+              Attack paths are rarely a single exploit. They are a route through
+              systems that each looked acceptable on their own.
+            </p>
+          </div>
+        }
       />
 
       {/* -------------------- Mission & vision -------------------- */}
@@ -85,8 +83,9 @@ export default function AboutPage() {
                 <h2 className="mt-5 text-h3 text-ink">Vision</h2>
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">
                   Make enterprise-grade security operations accessible to
-                  organisations of every size — so that the quality of your
-                  defence is not determined by the size of your security budget.
+                  organisations of every size in Pakistan — so the quality of
+                  your defence is not decided by the size of your security
+                  budget.
                 </p>
               </Card>
             </Reveal>
@@ -95,7 +94,12 @@ export default function AboutPage() {
       </Section>
 
       {/* -------------------- Origin -------------------- */}
-      <Section tone="raised" divider spacing="tight" aria-labelledby="origin-heading">
+      <Section
+        tone="raised"
+        divider
+        spacing="tight"
+        aria-labelledby="origin-heading"
+      >
         <div className="container-x">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
             <SectionHeading
@@ -121,109 +125,111 @@ export default function AboutPage() {
               </p>
               <p className="text-[0.9375rem] leading-relaxed text-ink-muted">
                 This services practice grew out of the same work. The recurring
-                pattern in offensive engagements was not exotic exploitation — it
-                was ordinary attack paths that nobody was watching for. Finding
-                them once is useful. Detecting them continuously is what actually
-                changes an organisation&apos;s exposure.
+                pattern in offensive engagements was not exotic exploitation —
+                it was ordinary attack paths that nobody was watching for.
+                Finding them once is useful. Detecting them continuously is what
+                actually changes an organisation&apos;s exposure.
+              </p>
+              <p className="text-[0.9375rem] leading-relaxed text-ink-muted">
+                The other pattern was structural. Pakistani organisations facing
+                real regulatory pressure from PTA, the State Bank and overseas
+                customers were being offered either a compliance checkbox
+                exercise or an enterprise contract priced for a different
+                market. Very little in between actually defended anything.
               </p>
               <p className="text-[0.9375rem] leading-relaxed text-ink-muted">
                 That is the whole premise: run the offensive work and the
-                monitoring together, so that what one discipline learns, the
-                other immediately applies.
+                monitoring together, price it in rupees, and scope it to what an
+                organisation genuinely runs.
               </p>
             </Reveal>
           </div>
         </div>
       </Section>
 
-      {/* -------------------- Principles -------------------- */}
-      <Section aria-labelledby="principles-heading">
-        <div className="container-x">
-          <SectionHeading
-            id="principles-heading"
-            eyebrow="How we work"
-            title="Three commitments we hold ourselves to."
-          />
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {PRINCIPLES.map((principle, i) => (
-              <Reveal key={principle.title} delay={i * 80}>
-                <Card className="h-full">
-                  <span className="font-mono text-2xl font-medium text-brand/30">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-4 text-h3 text-ink">{principle.title}</h3>
-                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">
-                    {principle.body}
-                  </p>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      <WhyUsSection />
-
       {/* -------------------- Team -------------------- */}
-      <Section tone="raised" divider aria-labelledby="team-heading">
+      <Section aria-labelledby="team-heading">
         <div className="container-x">
           <SectionHeading
             id="team-heading"
             eyebrow="Team"
             title="The people who would work on your account."
-            lead="Named team details are published here once confirmed. We don't list credentials, affiliations or headcounts we can't stand behind."
+            lead="A small team by design. You deal directly with the practitioners doing the work, not an account manager relaying messages to them."
           />
 
-          <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {TEAM.map((member, i) => (
-              <Reveal as="li" key={i} delay={i * 70}>
-                <div className="panel-lit hairline-top flex h-full flex-col items-start p-7">
-                  {/* Neutral avatar placeholder — no stock photography */}
-                  <span
-                    aria-hidden="true"
-                    className="flex size-14 items-center justify-center rounded-2xl border border-dashed border-line-strong bg-surface-2 text-ink-faint"
-                  >
-                    <Icon name="identity" className="size-6" />
-                  </span>
-                  <p className="mt-5 inline-flex rounded-md border border-dashed border-line-strong bg-surface-2/60 px-2 py-0.5 font-mono text-[0.8125rem] text-ink-subtle">
-                    {member.name}
-                  </p>
-                  <p className="mt-2 inline-flex rounded-md border border-dashed border-line-strong bg-surface-2/60 px-2 py-0.5 font-mono text-[0.75rem] text-ink-faint">
+          <ul className="mt-14 grid gap-6 lg:grid-cols-3">
+            {team.map((member, i) => (
+              <Reveal as="li" key={member.id} delay={i * 90}>
+                <Card className="flex h-full flex-col">
+                  <AbstractAvatar seed={member.seed} className="size-16" />
+
+                  <h3 className="mt-5 text-h3 text-ink">{member.name}</h3>
+                  <p className="mt-1 text-[0.875rem] text-brand">
                     {member.role}
                   </p>
-                </div>
+
+                  <ul className="mt-4 flex flex-wrap gap-1.5">
+                    {member.credentials.map((credential) => (
+                      <li
+                        key={credential}
+                        className="rounded-md border border-brand/30 bg-brand/8 px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[0.06em] text-brand"
+                      >
+                        {credential}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {member.highlight ? (
+                    <p className="mt-4 flex items-start gap-2 rounded-lg border border-line bg-surface-2/60 px-3 py-2.5 text-[0.8125rem] leading-relaxed text-ink-muted">
+                      <Icon
+                        name="target"
+                        className="mt-0.5 size-3.5 shrink-0 text-brand"
+                      />
+                      {member.highlight}
+                    </p>
+                  ) : null}
+
+                  <p className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-ink-muted">
+                    {member.bio}
+                  </p>
+
+                  {member.additional ? (
+                    <p className="mt-4 border-t border-line pt-4 text-[0.75rem] leading-relaxed text-ink-subtle">
+                      <span className="mono-label text-ink-faint">
+                        Also holds ·{" "}
+                      </span>
+                      {member.additional.join(" · ")}
+                    </p>
+                  ) : null}
+
+                  {member.link ? (
+                    <a
+                      href={member.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-brand transition-colors hover:text-brand-bright"
+                    >
+                      {member.link.label}
+                      <Icon name="external" className="size-3.5" />
+                    </a>
+                  ) : null}
+                </Card>
               </Reveal>
             ))}
           </ul>
-
-          <Reveal
-            delay={100}
-            className="mt-10 rounded-xl border border-line bg-surface-2/50 p-6"
-          >
-            <div className="flex items-start gap-3">
-              <Icon
-                name="info"
-                className="mt-0.5 size-[1.125rem] shrink-0 text-signal"
-              />
-              <p className="text-sm leading-relaxed text-ink-muted">
-                Placeholders shown above are intentional. Team names, roles and
-                individual certifications are supplied during scoping, and
-                published here only once they are confirmed — we would rather
-                show an obvious gap than an invented credential.
-              </p>
-            </div>
-          </Reveal>
         </div>
       </Section>
 
+      <WhyUsSection />
+
       {/* -------------------- Case studies -------------------- */}
-      <Section aria-labelledby="cases-heading">
+      <Section tone="raised" divider aria-labelledby="cases-heading">
         <div className="container-x">
           <SectionHeading
             id="cases-heading"
             eyebrow="Case studies"
             title="Case studies coming soon."
-            lead="We will publish engagement write-ups once we have client permission to do so. Until then this section stays empty rather than being filled with invented customers, logos or results."
+            lead="We publish engagement write-ups only with client permission. Until we have it, this section stays empty rather than being filled with invented customers, logos or results."
             maxWidth="max-w-3xl"
           />
 
@@ -237,7 +243,7 @@ export default function AboutPage() {
                   Want to see relevant examples now?
                 </p>
                 <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">
-                  Ask during scoping. We can walk through anonymised,
+                  Ask during scoping. We can walk you through anonymised,
                   permission-cleared examples of the attack paths and detection
                   gaps we most commonly find in environments like yours.
                 </p>

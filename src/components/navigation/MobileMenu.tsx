@@ -164,7 +164,7 @@ export function MobileMenu({
 
         <div className="shrink-0 space-y-2.5 border-t border-line bg-surface-2/50 p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
           <Button
-            href="/request-assessment"
+            href="/contact"
             size="lg"
             className="w-full"
             onClick={onClose}

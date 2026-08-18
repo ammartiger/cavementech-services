@@ -79,7 +79,7 @@ export default function PenetrationTestingPage() {
         lead="Scoped, authorised testing that establishes what is genuinely reachable, what it leads to, and what it would cost the business — evidenced, chained and manually verified."
         primary={{
           label: "Request a Penetration Test",
-          href: "/request-assessment",
+          href: "/contact",
         }}
         secondary={{ label: "Talk to a Security Expert", href: "/contact" }}
       />
@@ -220,7 +220,7 @@ export default function PenetrationTestingPage() {
         body="Tell us what you want tested and why. We'll come back with a scope, an approach and a timeline — and tell you if a different engagement would serve you better."
         primary={{
           label: "Request a Penetration Test",
-          href: "/request-assessment",
+          href: "/contact",
         }}
         secondary={{ label: "Talk to a Security Expert", href: "/contact" }}
       />

@@ -12,6 +12,7 @@ const CAPABILITY_ICONS: Record<string, IconName> = {
   investigation: "search",
   "incident-response": "siren",
   "threat-hunting": "crosshair",
+  "customer-notification": "phone",
   "security-reporting": "report",
 };
 

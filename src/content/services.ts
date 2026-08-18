@@ -56,12 +56,12 @@ export const servicePillars: ServicePillar[] = [
     title: "Audits & Compliance",
     href: "/security-audit",
     summary:
-      "Independent assessment of where your security controls actually stand, and structured readiness support ahead of certification or customer audits.",
+      "Independent assessment of where your controls actually stand, plus readiness support for the requirements Pakistani organisations are held to — PTA, SBP, SECP and ISO 27001.",
     points: [
-      "Cybersecurity gap assessments",
-      "Risk assessments and control reviews",
+      "PTA CTDISR readiness and gap assessment",
+      "SBP ETGRM control assessment",
       "ISO 27001 readiness support",
-      "Security policy assessment",
+      "Cybersecurity gap and risk assessments",
       "Vendor and third-party security review",
     ],
     cta: { label: "Assess Your Security Posture", href: "/security-audit" },
@@ -293,12 +293,38 @@ export const auditServices: Engagement[] = [
     ],
   },
   {
-    id: "regulatory-assessment",
-    title: "Regulatory & Industry Security Assessment",
+    id: "pta-ctdisr",
+    title: "PTA CTDISR Readiness",
     summary:
-      "Assessment support against the security requirements that apply to your sector and customers.",
+      "Preparation for the Critical Telecom Data and Infrastructure Security Regulations that PTA licensees are held to.",
     scope: [
-      "Applicable requirement mapping",
+      "Gap assessment against CTDISR control areas",
+      "ISMS and incident response capability build-out",
+      "Evidence pack preparation ahead of the formal audit",
+      "Remediation of findings before an approved auditor attends",
+      "Note: the mandatory compliance audit itself must be performed by a PTA-approved auditor",
+    ],
+  },
+  {
+    id: "sbp-etgrm",
+    title: "SBP ETGRM & Financial Sector Assessment",
+    summary:
+      "Control assessment against State Bank of Pakistan expectations for banks, MFBs, DFIs and payment sector entities.",
+    scope: [
+      "Gap assessment against the ETGRM framework",
+      "Technical verification that documented controls actually operate",
+      "Payment flow and digital channel security review",
+      "Outsourcing and third-party risk assessment",
+      "Board and audit-committee reporting pack",
+    ],
+  },
+  {
+    id: "regulatory-assessment",
+    title: "SECP & Sector Requirement Assessment",
+    summary:
+      "Assessment support against the security requirements applying to your regulator, your sector and your customers.",
+    scope: [
+      "Applicable requirement mapping (SECP, sector circulars, customer contracts)",
       "Control gap identification",
       "Evidence readiness review",
       "Remediation planning",

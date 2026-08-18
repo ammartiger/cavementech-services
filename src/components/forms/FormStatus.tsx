@@ -1,8 +1,7 @@
 "use client";
 
 import { Icon } from "@/components/ui/Icon";
-import { Detail } from "@/components/ui/Placeholder";
-import { site, isPlaceholder } from "@/content/site";
+import { contactLinks, site } from "@/content/site";
 import { mailtoFallback, type SubmitState } from "@/lib/forms";
 
 /** Inline spinner used on the submit button. */
@@ -71,7 +70,6 @@ export function UnconfiguredPanel({
   values: Record<string, string | string[]>;
 }) {
   const email = site.contact.email;
-  const pending = isPlaceholder(email);
 
   return (
     <div
@@ -82,30 +80,37 @@ export function UnconfiguredPanel({
         <Icon name="info" className="mt-0.5 size-5 shrink-0 text-brand" />
         <div>
           <p className="text-[0.9375rem] font-medium text-ink">
-            Form delivery is not connected yet
+            Online submission isn&apos;t available right now
           </p>
           <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-            This site is deployed as a static build, so submissions are handled
-            by a form endpoint that has not been configured. Set{" "}
-            <code className="rounded bg-surface-3 px-1.5 py-0.5 font-mono text-[0.75rem] text-ink">
-              NEXT_PUBLIC_FORM_ENDPOINT
-            </code>{" "}
-            at build time to enable it.
+            Nothing you typed is lost. Send it straight to us using any of the
+            routes below — everything you entered is carried across.
           </p>
 
-          {pending ? (
-            <p className="mt-3 text-sm text-ink-muted">
-              In the meantime, contact us at <Detail value={email} />.
-            </p>
-          ) : (
+          <div className="mt-4 flex flex-wrap gap-2.5">
             <a
               href={mailtoFallback(email, formName, values)}
-              className="mt-4 inline-flex items-center gap-2 rounded-lg border border-line-strong bg-surface-2 px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:border-brand/50"
+              className="inline-flex items-center gap-2 rounded-lg border border-line-strong bg-surface-2 px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:border-brand/50"
             >
               <Icon name="mail" className="size-4" />
-              Send this as an email instead
+              Email it instead
             </a>
-          )}
+            <a
+              href={contactLinks.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-line-strong bg-surface-2 px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:border-brand/50"
+            >
+              WhatsApp us
+            </a>
+            <a
+              href={contactLinks.tel}
+              className="inline-flex items-center gap-2 rounded-lg border border-line-strong bg-surface-2 px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:border-brand/50"
+            >
+              <Icon name="phone" className="size-4" />
+              {site.contact.phone}
+            </a>
+          </div>
         </div>
       </div>
     </div>

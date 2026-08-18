@@ -16,12 +16,12 @@ export type Capability = {
 export const socCapabilities: Capability[] = [
   {
     id: "continuous-monitoring",
-    title: "Continuous Monitoring",
+    title: "We Monitor. We Inform You.",
     summary:
-      "Endpoints, servers, identities, cloud workloads and network infrastructure under one set of eyes.",
+      "Your endpoints, servers, identities, cloud workloads and network are watched continuously — and the moment something matters, you hear it from us.",
     detail: [
-      "Security telemetry is collected from the systems that actually matter to your business, then normalised so events from different sources can be correlated against each other.",
-      "Coverage is scoped to your environment rather than sold as a fixed bundle — you are not paying to monitor systems that carry no risk.",
+      "Security telemetry is collected from the systems that actually matter to your business, then normalised so events from different sources can be correlated against each other. Monitoring runs continuously; you do not have to watch anything yourself.",
+      "The second half is the part that matters: when activity is confirmed as a genuine threat, we contact you directly — with what happened, what it affected, how urgent it is and what we recommend doing next. You are never left to discover an incident from a dashboard nobody opened.",
     ],
   },
   {
@@ -75,13 +75,23 @@ export const socCapabilities: Capability[] = [
     ],
   },
   {
+    id: "customer-notification",
+    title: "Direct Notification",
+    summary:
+      "Confirmed incidents reach a human on your side by phone, WhatsApp or email — whichever route you nominate.",
+    detail: [
+      "You tell us during onboarding who should be contacted, on which channel, and at what severity. Critical incidents get a call; lower severities get written notification. Nothing important waits in a queue for someone to notice it.",
+      "Every notification carries the same structure: what we detected, what it affected, our assessment of severity, the evidence behind it, and the action we recommend — so the person receiving it can decide immediately rather than asking follow-up questions.",
+    ],
+  },
+  {
     id: "security-reporting",
     title: "Security Reporting",
     summary:
       "Regular reporting written to be read by both engineers and executives.",
     detail: [
       "Incident summaries, detection coverage, recurring weaknesses and prioritised recommendations you can actually action.",
-      "Reporting is designed to support audit and board reporting requirements without being padded to look substantial.",
+      "Reporting is designed to support PTA, SBP and SECP evidence requirements, and board reporting, without being padded to look substantial.",
     ],
   },
 ];

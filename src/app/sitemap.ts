@@ -19,8 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { path: "/industries", priority: 0.7, changeFrequency: "monthly" },
       { path: "/about", priority: 0.6, changeFrequency: "monthly" },
       { path: "/insights", priority: 0.7, changeFrequency: "weekly" },
-      { path: "/contact", priority: 0.8, changeFrequency: "yearly" },
-      { path: "/request-assessment", priority: 0.9, changeFrequency: "yearly" },
+      // Contact is the merged contact + assessment-request page and the
+      // primary conversion target, hence the elevated priority.
+      { path: "/contact", priority: 0.9, changeFrequency: "yearly" },
       { path: "/security", priority: 0.4, changeFrequency: "yearly" },
     ];
 

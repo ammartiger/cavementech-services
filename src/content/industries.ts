@@ -1,116 +1,148 @@
 /**
- * Industry positioning.
+ * Industry positioning for the Pakistani market.
  *
- * Wording note: sector-specific regulations are referenced only as context that
- * organisations in that sector commonly work under. Nothing here claims we
- * certify, attest or guarantee regulatory outcomes, and no customer in any
- * sector is named or implied.
+ * Wording note: regulators and frameworks are referenced only as the
+ * environment organisations in that sector operate under. Nothing here claims
+ * we certify, attest to or guarantee a regulatory outcome, and no customer in
+ * any sector is named or implied.
  */
 
 export type Industry = {
   id: string;
   name: string;
-  /** Icon key resolved by components/ui/IndustryIcon.tsx */
+  /** Icon key resolved by the consuming component. */
   icon: string;
+  /** Regulator or driver, shown as a small tag. */
+  driver?: string;
   pressure: string;
   focus: string[];
 };
 
 export const industries: Industry[] = [
   {
-    id: "technology",
-    name: "Technology & SaaS",
-    icon: "cloud",
+    id: "banking",
+    name: "Banking & Microfinance",
+    icon: "bank",
+    driver: "SBP",
     pressure:
-      "Customer security questionnaires, rapid release cycles and cloud estates that change faster than documentation.",
+      "State Bank expectations on technology governance and information security, sustained targeting of digital channels, and inspection cycles that require evidence rather than intent.",
     focus: [
+      "SBP ETGRM control gap assessment",
+      "Privileged access and identity monitoring",
+      "Detection tuned to account-takeover and fraud patterns",
+      "Board and audit-committee reporting",
+    ],
+  },
+  {
+    id: "fintech-payments",
+    name: "Fintech & Payments",
+    icon: "cart",
+    driver: "SBP · PSO/PSP",
+    pressure:
+      "Authorisation conditions, rapid product release cycles, and payment flows where a security failure is immediately a financial one.",
+    focus: [
+      "Application and API penetration testing",
+      "Payment flow and digital channel review",
+      "Automated-abuse and fraud detection",
+      "Security evidence for partner banks and regulators",
+    ],
+  },
+  {
+    id: "telecom-isp",
+    name: "Telecom & ISPs",
+    icon: "radar",
+    driver: "PTA · CTDISR",
+    pressure:
+      "CTDISR obligations covering information security management, incident response capability, third-party audits and data localisation — with licence standing attached to compliance.",
+    focus: [
+      "CTDISR readiness and gap assessment",
+      "Incident response capability build-out",
+      "Evidence preparation ahead of the approved-auditor engagement",
+      "Continuous monitoring of critical infrastructure",
+    ],
+  },
+  {
+    id: "technology",
+    name: "Technology & IT Exports",
+    icon: "cloud",
+    driver: "Customer due diligence",
+    pressure:
+      "Overseas clients making security questionnaires and ISO 27001 a condition of contract, alongside cloud estates that change faster than documentation.",
+    focus: [
+      "ISO 27001 readiness support",
       "Cloud and identity monitoring",
       "Application and API security testing",
-      "Security evidence for enterprise customer reviews",
-    ],
-  },
-  {
-    id: "financial-services",
-    name: "Financial Services",
-    icon: "bank",
-    pressure:
-      "High-value targeting, fraud-adjacent attack patterns and sustained supervisory scrutiny of security controls.",
-    focus: [
-      "Identity and privileged access monitoring",
-      "Detection tuned to fraud and account-takeover patterns",
-      "Control assessment and audit readiness",
-    ],
-  },
-  {
-    id: "healthcare",
-    name: "Healthcare",
-    icon: "health",
-    pressure:
-      "Sensitive patient data, clinical systems that cannot simply be taken offline, and mixed legacy estates.",
-    focus: [
-      "Monitoring that accounts for clinical availability constraints",
-      "Access control and data-exposure review",
-      "Ransomware readiness and response planning",
-    ],
-  },
-  {
-    id: "education",
-    name: "Education",
-    icon: "education",
-    pressure:
-      "Open networks, large transient user populations and constrained security budgets.",
-    focus: [
-      "Identity and credential-abuse detection",
-      "Segmentation and internal attack-path testing",
-      "Cost-proportionate monitoring coverage",
-    ],
-  },
-  {
-    id: "manufacturing",
-    name: "Manufacturing",
-    icon: "factory",
-    pressure:
-      "Production downtime as the dominant risk, alongside converging IT and operational technology networks.",
-    focus: [
-      "IT/OT boundary and segmentation review",
-      "Availability-aware response playbooks",
-      "Supply-chain and vendor access assessment",
-    ],
-  },
-  {
-    id: "professional-services",
-    name: "Professional Services",
-    icon: "briefcase",
-    pressure:
-      "Confidential client data, heavy email exposure and client-driven security due diligence.",
-    focus: [
-      "Microsoft 365 and identity monitoring",
-      "Business email compromise detection",
-      "Client security due-diligence support",
-    ],
-  },
-  {
-    id: "government-public",
-    name: "Government & Public Sector",
-    icon: "shield",
-    pressure:
-      "Targeted threat activity, public accountability and procurement-driven security requirements.",
-    focus: [
-      "Continuous monitoring against targeted activity",
-      "Independent security assessment",
-      "Documented control evidence",
+      "Security evidence packs for enterprise procurement",
     ],
   },
   {
     id: "ecommerce",
     name: "E-commerce & Retail",
     icon: "cart",
+    driver: "PCI DSS · Payment partners",
     pressure:
-      "Payment flows, credential stuffing at scale and revenue that stops the moment the platform does.",
+      "Credential stuffing at scale, payment integrations under scrutiny, and revenue that stops the moment the platform does.",
     focus: [
-      "Application and API security testing",
-      "Automated-abuse and account-takeover detection",
-      "Cardholder-environment control assessment",
+      "Web application and API testing",
+      "Account-takeover and automated-abuse detection",
+      "Cardholder environment control assessment",
+      "Availability-aware response planning",
+    ],
+  },
+  {
+    id: "manufacturing",
+    name: "Manufacturing & Textile",
+    icon: "factory",
+    driver: "Buyer requirements",
+    pressure:
+      "Production downtime as the dominant risk, converging IT and operational technology networks, and international buyers increasingly auditing supplier security.",
+    focus: [
+      "IT/OT boundary and segmentation review",
+      "Availability-aware response playbooks",
+      "Supply-chain and vendor access assessment",
+      "Ransomware readiness",
+    ],
+  },
+  {
+    id: "healthcare",
+    name: "Healthcare",
+    icon: "health",
+    driver: "Patient data",
+    pressure:
+      "Sensitive patient records, clinical systems that cannot simply be taken offline, and mixed estates with long-lived legacy equipment.",
+    focus: [
+      "Monitoring that respects clinical availability constraints",
+      "Access control and data-exposure review",
+      "Ransomware readiness and response planning",
+      "Segmentation of clinical and administrative networks",
+    ],
+  },
+  {
+    id: "education",
+    name: "Education & Universities",
+    icon: "education",
+    driver: "Research & student data",
+    pressure:
+      "Open networks, large transient user populations, research data of genuine value, and security budgets that rarely match the attack surface.",
+    focus: [
+      "Identity and credential-abuse detection",
+      "Segmentation and internal attack-path testing",
+      "Cost-proportionate monitoring coverage",
+      "Student and research data protection review",
+    ],
+  },
+  {
+    id: "government-public",
+    name: "Government & Public Sector",
+    icon: "shield",
+    driver: "NCERT · Sector CERTs",
+    pressure:
+      "Targeted threat activity, national incident-reporting expectations, and procurement rules that require demonstrable security control.",
+    focus: [
+      "Continuous monitoring against targeted activity",
+      "Independent security assessment",
+      "Incident reporting workflow aligned to sector CERT expectations",
+      "Documented control evidence",
     ],
   },
 ];

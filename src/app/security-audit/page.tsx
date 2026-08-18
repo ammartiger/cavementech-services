@@ -7,6 +7,7 @@ import { Icon } from "@/components/ui/Icon";
 import { FaqList } from "@/components/ui/Faq";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { CtaSection } from "@/components/services/CtaSection";
+import { FrameworksSection } from "@/components/compliance/FrameworksSection";
 import { auditServices } from "@/content/services";
 import { auditFaqs } from "@/content/faq";
 import { pageMeta, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo";
@@ -73,7 +74,7 @@ export default function SecurityAuditPage() {
         lead="Independent assessment of what is implemented, what is documented, and the distance between the two — with a remediation plan you can actually execute."
         primary={{
           label: "Assess Your Security Posture",
-          href: "/request-assessment",
+          href: "/contact",
         }}
         secondary={{ label: "Talk to a Security Expert", href: "/contact" }}
       />
@@ -139,6 +140,8 @@ export default function SecurityAuditPage() {
         </div>
       </Section>
 
+      <FrameworksSection />
+
       {/* -------------------- Delivery phases -------------------- */}
       <Section tone="raised" divider aria-labelledby="phases-heading">
         <div className="container-x">
@@ -194,7 +197,7 @@ export default function SecurityAuditPage() {
         body="Tell us what's driving the assessment — a customer requirement, a certification target, a board question or a genuine unknown — and we'll scope the work that answers it."
         primary={{
           label: "Assess Your Security Posture",
-          href: "/request-assessment",
+          href: "/contact",
         }}
         secondary={{ label: "Talk to a Security Expert", href: "/contact" }}
       />

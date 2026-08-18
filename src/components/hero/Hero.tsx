@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
 import { SignalPipeline } from "@/components/viz/SignalPipeline";
-import { site } from "@/content/site";
+import { contactLinks, site } from "@/content/site";
 
 const MICRO_POINTS = [
   { icon: "radar" as const, label: "Continuous monitoring" },
@@ -39,7 +39,7 @@ export function Hero() {
                   <span className="motion-flow absolute inline-flex size-full animate-blink rounded-full bg-brand" />
                   <span className="relative inline-flex size-1.5 rounded-full bg-brand" />
                 </span>
-                Managed SOC · MDR · Offensive Security
+                Managed SOC · MDR · Offensive Security · Pakistan
               </p>
             </Reveal>
 
@@ -55,15 +55,15 @@ export function Hero() {
             <Reveal delay={160}>
               <p className="mt-7 max-w-xl text-lead text-ink-muted">
                 Managed SOC and Managed Detection and Response (MDR), backed by
-                penetration testing — to detect threats, investigate them
-                properly, coordinate response, and continuously validate that
-                your defences actually work.
+                penetration testing. We monitor your environment continuously,
+                investigate what matters, and tell you directly the moment
+                something needs your attention.
               </p>
             </Reveal>
 
             <Reveal delay={240}>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Button href="/request-assessment" size="lg" icon="arrow-right">
+                <Button href="/contact" size="lg" icon="arrow-right">
                   Request a Security Assessment
                 </Button>
                 <Button href="/managed-soc" size="lg" variant="ghost">
@@ -87,6 +87,27 @@ export function Hero() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-line pt-6">
+                <p className="text-[0.9375rem] text-ink-muted">
+                  From{" "}
+                  <span className="font-mono font-medium text-brand">
+                    {site.pricing.currencySymbol} {site.pricing.startingFrom}
+                  </span>{" "}
+                  {site.pricing.unit}
+                </p>
+                <span
+                  aria-hidden="true"
+                  className="hidden h-4 w-px bg-line-strong sm:block"
+                />
+                <a
+                  href={contactLinks.tel}
+                  className="flex items-center gap-2 text-[0.9375rem] text-ink-muted transition-colors hover:text-brand"
+                >
+                  <Icon name="phone" className="size-4 text-brand/80" />
+                  {site.contact.phone}
+                </a>
+              </div>
+
               <p className="mt-4 text-[0.8125rem] text-ink-faint">
                 {site.coverageStatement}
               </p>

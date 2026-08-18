@@ -34,7 +34,7 @@ export function pageMeta({
       url,
       siteName: `${site.name} ${site.serviceLine}`,
       type: "website",
-      locale: "en_GB",
+      locale: "en_PK",
       images: [
         {
           url: `${site.url}/og.png`,
@@ -60,15 +60,31 @@ export function pageMeta({
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "ProfessionalService",
     name: site.name,
     alternateName: `${site.name} ${site.serviceLine}`,
     url: site.url,
     description: site.description,
     slogan: site.tagline,
+    email: site.contact.email,
+    telephone: site.contact.phoneE164,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: site.contact.city,
+      addressCountry: site.contact.countryCode,
+    },
+    areaServed: { "@type": "Country", name: site.contact.country },
+    priceRange: `From ${site.pricing.currencySymbol} ${site.pricing.startingFrom} ${site.pricing.unit}`,
+    knowsAbout: [
+      "Managed Detection and Response",
+      "Security Operations Centre",
+      "Penetration Testing",
+      "Active Directory Security",
+      "PTA CTDISR readiness",
+      "SBP ETGRM assessment",
+      "ISO/IEC 27001 readiness",
+    ],
     sameAs: [site.parentSite],
-    // Contact details are intentionally omitted until real values replace the
-    // placeholders in content/site.ts — structured data must not be fabricated.
   };
 }
 

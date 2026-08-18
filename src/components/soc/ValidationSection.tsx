@@ -68,7 +68,7 @@ export function ValidationSection() {
                 <Button href="/penetration-testing" icon="arrow-right">
                   Explore offensive security
                 </Button>
-                <Button href="/request-assessment" variant="ghost">
+                <Button href="/contact" variant="ghost">
                   Validate my defences
                 </Button>
               </div>

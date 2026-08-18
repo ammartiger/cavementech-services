@@ -3,7 +3,6 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Icon } from "@/components/ui/Icon";
-import { Detail } from "@/components/ui/Placeholder";
 import { site } from "@/content/site";
 import { pageMeta } from "@/lib/seo";
 
@@ -69,16 +68,23 @@ export default function SecurityPage() {
                 <h2 className="text-h3 text-ink">Report a vulnerability</h2>
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">
                   Email your report to{" "}
-                  <Detail
-                    value={site.contact.securityEmail}
-                    linkPrefix="mailto:"
-                  />
-                  . We aim to acknowledge reports promptly and will tell you
-                  what we intend to do about the issue and roughly when.
+                  <a
+                    href={`mailto:${site.contact.securityEmail}?subject=${encodeURIComponent(
+                      "Security vulnerability report",
+                    )}`}
+                    className="font-medium text-brand underline underline-offset-4 hover:text-brand-bright"
+                  >
+                    {site.contact.securityEmail}
+                  </a>{" "}
+                  with &ldquo;Security vulnerability report&rdquo; in the
+                  subject line. We aim to acknowledge reports promptly and will
+                  tell you what we intend to do about the issue and roughly
+                  when.
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-ink-subtle">
-                  Please do not use the contact form for security reports — it
-                  routes to a general enquiries inbox.
+                  Please use email rather than the contact form for security
+                  reports, so it is triaged as a disclosure rather than a sales
+                  enquiry.
                 </p>
               </div>
             </div>
@@ -93,7 +99,7 @@ export default function SecurityPage() {
             id="scope-heading"
             eyebrow="Scope"
             title="What is authorised, and what isn't."
-            lead="Testing outside the scope below is not authorised. That matters here more than most places — we cannot consent on behalf of customers whose environments we monitor."
+            lead="Testing outside the scope below is not authorised. That matters here more than most places: under the Prevention of Electronic Crimes Act 2016, unauthorised access to an information system is a criminal offence in Pakistan — and we cannot consent on behalf of customers whose environments we monitor."
           />
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">

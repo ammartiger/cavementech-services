@@ -69,7 +69,7 @@ export default function HowItWorksPage() {
         lead="Security services are easy to describe vaguely. This page sets out the sequence, what each stage produces, and what we need from you at each point."
         primary={{
           label: "Request a Security Assessment",
-          href: "/request-assessment",
+          href: "/contact",
         }}
         secondary={{ label: "Talk to a Security Expert", href: "/contact" }}
       />

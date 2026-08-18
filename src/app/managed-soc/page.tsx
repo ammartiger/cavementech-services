@@ -10,6 +10,7 @@ import { ArchitectureSection } from "@/components/soc/ArchitectureSection";
 import { HowItWorksSection } from "@/components/soc/HowItWorksSection";
 import { AlertFlowSection } from "@/components/soc/AlertFlowSection";
 import { SlaSection } from "@/components/services/SlaSection";
+import { PricingSection } from "@/components/services/PricingSection";
 import { CtaSection } from "@/components/services/CtaSection";
 import { TenancyDiagram } from "@/components/viz/TenancyDiagram";
 import { CustomerPortal } from "@/components/viz/CustomerPortal";
@@ -31,6 +32,7 @@ const CAPABILITY_ICONS: Record<string, IconName> = {
   investigation: "search",
   "incident-response": "siren",
   "threat-hunting": "crosshair",
+  "customer-notification": "phone",
   "security-reporting": "report",
 };
 
@@ -61,7 +63,7 @@ export default function ManagedSocPage() {
         lead="Managed Detection and Response (MDR) gives you the capability of an internal security operations centre — telemetry, detection, investigation and response — without building, staffing or retaining one."
         primary={{
           label: "Request a Security Assessment",
-          href: "/request-assessment",
+          href: "/contact",
         }}
         secondary={{ label: "Talk to a Security Expert", href: "/contact" }}
         aside={
@@ -151,6 +153,7 @@ export default function ManagedSocPage() {
         </div>
       </Section>
 
+      <PricingSection />
       <SlaSection />
 
       {/* -------------------- FAQ -------------------- */}
@@ -176,7 +179,7 @@ export default function ManagedSocPage() {
         body="We start by understanding what you run, what you already have in place and where the real risk sits — then scope monitoring against that, not against a package."
         primary={{
           label: "Request a Security Assessment",
-          href: "/request-assessment",
+          href: "/contact",
         }}
         secondary={{ label: "Talk to a Security Expert", href: "/contact" }}
       />

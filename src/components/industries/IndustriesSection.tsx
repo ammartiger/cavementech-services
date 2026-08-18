@@ -6,6 +6,7 @@ import { industries } from "@/content/industries";
 
 const ICON_MAP: Record<string, IconName> = {
   cloud: "cloud",
+  radar: "radar",
   bank: "bank",
   health: "health",
   education: "education",
@@ -33,22 +34,29 @@ export function IndustriesSection() {
           maxWidth="max-w-3xl"
         />
 
-        <ul className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((industry, i) => (
             <Reveal
               as="li"
               key={industry.id}
-              delay={(i % 4) * 60}
+              delay={(i % 3) * 60}
               className="group bg-surface transition-colors duration-300 hover:bg-surface-2"
             >
               <Link
                 href={`/industries#${industry.id}`}
                 className="flex h-full flex-col p-6"
               >
-                <Icon
-                  name={ICON_MAP[industry.icon] ?? "shield"}
-                  className="size-6 text-ink-faint transition-colors duration-300 group-hover:text-brand"
-                />
+                <div className="flex items-start justify-between gap-3">
+                  <Icon
+                    name={ICON_MAP[industry.icon] ?? "shield"}
+                    className="size-6 text-ink-faint transition-colors duration-300 group-hover:text-brand"
+                  />
+                  {industry.driver ? (
+                    <span className="rounded-md border border-line-strong bg-surface-3 px-1.5 py-0.5 font-mono text-[0.625rem] uppercase tracking-[0.08em] text-ink-subtle">
+                      {industry.driver}
+                    </span>
+                  ) : null}
+                </div>
                 <h3 className="mt-4 text-[0.9375rem] font-semibold text-ink">
                   {industry.name}
                 </h3>
