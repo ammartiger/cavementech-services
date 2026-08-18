@@ -1,0 +1,17 @@
+{
+  "name": "CavemenTech Security Services",
+  "short_name": "CavemenTech",
+  "description": "Managed SOC, MDR, penetration testing and security assurance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090d",
+  "theme_color": "#07090d",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

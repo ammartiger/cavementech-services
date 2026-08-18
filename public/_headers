@@ -1,0 +1,21 @@
+# Response headers for hosts that support them (Netlify, Cloudflare Pages).
+#
+# GitHub Pages does NOT support custom response headers, so this file has no
+# effect there — it is committed so that the hardened header set is ready the
+# moment the site moves behind a CDN or reverse proxy that does support it.
+#
+# The CSP below duplicates the meta-tag policy in src/app/layout.tsx and adds
+# frame-ancestors, which browsers ignore when delivered via <meta>.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https:; form-action 'self' https:; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

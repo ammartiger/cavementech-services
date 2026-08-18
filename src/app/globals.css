@@ -1,0 +1,331 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   CavemenTech Security Services — Design System
+   --------------------------------------------------------------------------
+   Dark, near-black enterprise surface. One dominant brand accent (amber,
+   carried over from the cavementech.com identity) plus a restrained cool
+   "signal" accent reserved exclusively for telemetry / data-flow visuals so
+   the diagrams read as instrumentation rather than decoration.
+   Severity colours are semantic and used only in incident contexts.
+   ========================================================================== */
+
+@theme {
+  /* --- Surfaces: cool near-black, layered by elevation --------------------- */
+  --color-base: #07090d;
+  --color-surface: #0b0e14;
+  --color-surface-2: #11151e;
+  --color-surface-3: #171c27;
+  --color-surface-4: #1e2531;
+
+  /* --- Hairlines ---------------------------------------------------------- */
+  --color-line: #1b2130;
+  --color-line-strong: #2a3242;
+  --color-line-bright: #3a4557;
+
+  /* --- Typography ---------------------------------------------------------
+     Four-tier grey ramp. Every tier clears WCAG AA (4.5:1) against the
+     darkest surface it is used on (--color-surface-2), verified rather than
+     eyeballed — the original ramp bottomed out at 2.65:1, which looked right
+     and was not readable. */
+  --color-ink: #eef2f8; /* 17.7:1 on base */
+  --color-ink-muted: #a3adbe; /* 8.1:1 on surface-2 */
+  --color-ink-subtle: #8b95a7; /* 6.0:1 on surface-2 */
+  --color-ink-faint: #747f93; /* 4.5:1 on surface-2 */
+
+  /* Form control borders. Separate from the decorative hairline tokens
+     because WCAG 1.4.11 requires 3:1 for boundaries that identify a control,
+     and the card hairlines are deliberately quieter than that. */
+  --color-field: #505f7d;
+
+  /* --- Brand accent (amber) ----------------------------------------------- */
+  --color-brand: #f5b324;
+  --color-brand-bright: #ffc94d;
+  --color-brand-dim: #b8830f;
+  --color-brand-deep: #6b4c07;
+
+  /* --- Signal accent (telemetry / data flow only) ------------------------- */
+  --color-signal: #3ec9dd;
+  --color-signal-dim: #1d7f8f;
+  --color-signal-deep: #0e4653;
+
+  /* --- Operational status ------------------------------------------------- */
+  --color-active: #43c583;
+  --color-active-dim: #1f6b46;
+
+  /* --- Incident severity (semantic; incident contexts only) --------------- */
+  --color-sev-critical: #f0475b;
+  --color-sev-high: #ff8c42;
+  --color-sev-medium: #e5b93c;
+  --color-sev-low: #5aa9e6;
+  --color-sev-info: #7c8798;
+
+  /* --- Fonts -------------------------------------------------------------- */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+
+  /* --- Type scale --------------------------------------------------------- */
+  --text-display: clamp(2.5rem, 1.2rem + 5.2vw, 4.75rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.035em;
+  --text-display--font-weight: 600;
+
+  --text-h1: clamp(2.1rem, 1.2rem + 3.6vw, 3.5rem);
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h1--font-weight: 600;
+
+  --text-h2: clamp(1.75rem, 1.1rem + 2.4vw, 2.75rem);
+  --text-h2--line-height: 1.14;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h2--font-weight: 600;
+
+  --text-h3: clamp(1.3rem, 1.05rem + 0.9vw, 1.65rem);
+  --text-h3--line-height: 1.24;
+  --text-h3--letter-spacing: -0.018em;
+  --text-h3--font-weight: 600;
+
+  --text-lead: clamp(1.05rem, 0.98rem + 0.4vw, 1.25rem);
+  --text-lead--line-height: 1.6;
+
+  /* --- Motion ------------------------------------------------------------- */
+  --animate-flow: flow 3s linear infinite;
+  --animate-sweep: sweep 6s linear infinite;
+  --animate-blink: blink 2.4s ease-in-out infinite;
+  --animate-marquee: marquee 42s linear infinite;
+
+  /* --- Radii -------------------------------------------------------------- */
+  --radius-card: 0.875rem;
+  --radius-panel: 1.125rem;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+@keyframes sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   Base layer
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* Visible, high-contrast focus ring on every interactive element. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: var(--color-brand);
+    color: #07090d;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2a3242 transparent;
+  }
+  /* WebKit */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #07090d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a3242;
+    border-radius: 6px;
+    border: 2px solid #07090d;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a4557;
+  }
+}
+
+/* ==========================================================================
+   Reduced motion — honoured globally, including SVG animations
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .motion-flow,
+  .motion-node,
+  .motion-sweep {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+/* Page gutter + max width, used by every section. */
+@utility container-x {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+}
+
+@media (width >= 40rem) {
+  .container-x {
+    padding-inline: 2rem;
+  }
+}
+
+@media (width >= 64rem) {
+  .container-x {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Hairline card surface used across the site. */
+@utility panel {
+  background-color: color-mix(in oklab, #0b0e14 92%, transparent);
+  border: 1px solid #1b2130;
+  border-radius: 1.125rem;
+}
+
+/* Subtle top-edge highlight that reads as glass without heavy blur. */
+@utility panel-lit {
+  position: relative;
+  background-image: linear-gradient(
+    to bottom,
+    color-mix(in oklab, #11151e 80%, transparent),
+    color-mix(in oklab, #0b0e14 60%, transparent)
+  );
+  border: 1px solid #1b2130;
+  border-radius: 1.125rem;
+}
+
+@utility hairline-top {
+  box-shadow: inset 0 1px 0 0 color-mix(in oklab, #ffffff 7%, transparent);
+}
+
+/* Brand gradient text, used sparingly on key headline fragments. */
+@utility text-brand-gradient {
+  background-image: linear-gradient(100deg, #ffc94d, #f5b324 55%, #b8830f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Fine technical grid, used behind hero + architecture sections. */
+@utility grid-field {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, #ffffff 3.5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, #ffffff 3.5%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 64px 64px;
+}
+
+@utility mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Scroll-reveal: opt-in, driven by IntersectionObserver in <Reveal>. */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@utility reveal-shown {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Horizontal scroll affordance for wide diagrams on small screens. */
+@utility scroll-x {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}

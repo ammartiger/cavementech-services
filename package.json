@@ -1,0 +1,28 @@
+{
+  "name": "cavementech-services",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CavemenTech Security Services - Managed SOC, MDR, Penetration Testing, Security Assurance",
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "node scripts/generate-og.mjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "og": "node scripts/generate-og.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5.9.0"
+  }
+}
